@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Task
+
+- Create Carrousel for images.
+
+## Design
+
+![task1](https://user-images.githubusercontent.com/40905751/76276085-f1b17280-6252-11ea-9dec-f57d89214c7a.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
