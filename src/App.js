@@ -10,7 +10,12 @@ const images = [
 ];
 
 function App() {
-  return <Slider slides={images} />;
+  return (
+    <div style={{ display: "flex;", flexDirection: "row;" }}>
+      <div style={{ flex: "50%;" }}>Empty Space...!</div>
+      <Slider slides={images} />
+    </div>
+  );
 }
 
 export default App;

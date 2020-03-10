@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React, { useState } from "react";
+import React from "react";
 import { css, jsx } from "@emotion/core";
 import SliderContent from "../SliderContent/SliderContent";
 import Slide from "../Slide/Slide";
@@ -10,14 +10,14 @@ import Dots from "../Dot/Dot";
  * @function Slider
  */
 const Slider = props => {
-  const getWidth = () => window.innerWidth;
-  const [state, setState] = useState({
+  const [state, setState] = React.useState({
     activeIndex: 0,
     translate: 0,
     transition: 0.45
   });
-  const { translate, transition, activeIndex } = state;
+  const getWidth = () => window.innerWidth;
   const nextSlide = () => {
+    const { activeIndex } = state;
     if (activeIndex === props.slides.length - 1) {
       return setState({
         ...state,
@@ -34,6 +34,7 @@ const Slider = props => {
   };
 
   const prevSlide = () => {
+    const { activeIndex } = state;
     if (activeIndex === 0) {
       return setState({
         ...state,
@@ -52,8 +53,8 @@ const Slider = props => {
   return (
     <div css={SliderCSS}>
       <SliderContent
-        translate={translate}
-        transition={transition}
+        translate={state.translate}
+        transition={state.transition}
         width={getWidth() * props.slides.length}
       >
         {props.slides.map((slide, i) => (
@@ -63,7 +64,7 @@ const Slider = props => {
 
       <Arrow direction="left" handleClick={prevSlide} />
       <Arrow direction="right" handleClick={nextSlide} />
-      <Dots slides={props.slides} activeIndex={activeIndex} />
+      <Dots slides={props.slides} activeIndex={state.activeIndex} />
     </div>
   );
 };

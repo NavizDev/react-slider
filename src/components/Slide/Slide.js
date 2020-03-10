@@ -1,9 +1,7 @@
 /** @jsx jsx */
-import React from "react";
 import { css, jsx } from "@emotion/core";
 
 const Slide = ({ content }) => {
-  console.log(content);
   return (
     <div
       css={css`
